@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 risc0-zkvm = { path = "../../../../risc0/zkvm", default-features = false }
 voting-machine-core = { path = "../../core" }
+tracing = { version = "0.1", default-features = false }

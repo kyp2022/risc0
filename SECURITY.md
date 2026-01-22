@@ -1,30 +1,30 @@
-# RISC Zero Security Information
+# RISC Zero 安全信息
 
-This document provides links and contact information for RISC Zero.
+本文档提供 RISC Zero 的链接和联系信息。
 
-## Review Audit Reports
+## 审计报告查阅
 
-All security audit reports are available [here](https://github.com/risc0/rz-security/tree/main/audits).
+所有安全审计报告可在 [此处](https://github.com/risc0/rz-security/tree/main/audits) 查看。
 
-## Security Advisory Monitoring
+## 安全通告监控
 
-Security advisories will be published using the GitHub Security Advisory feature on the RISC Zero repository [here](https://github.com/risc0/risc0/security).
+安全通告将在 RISC Zero 仓库的 [GitHub Security Advisory 页面](https://github.com/risc0/risc0/security) 上发布。
 
-## Vulnerability Reporting
+## 漏洞报告
 
-Vulnerability reports should be submitted against the RISC Zero Bug Bounty Program on the Hackenproof platform [here](https://hackenproof.com/risc-zero/risc-zero-zkvm).
+漏洞报告应在 Hackenproof 平台上提交给 RISC Zero Bug Bounty 项目 [此处](https://hackenproof.com/risc-zero/risc-zero-zkvm)。
 
-_**Only report vulnerabilities that are present in the latest release.**_
+_**仅报告最新版本中存在的漏洞。**_
 
-## Email Contact
+## 邮件联系
 
-To contact the RISC Zero security team by email please use the following email address:
+要通过电子邮件联系 RISC Zero 安全团队，请使用以下邮箱地址：
 
 ```text
 security@risczero.com
 ```
 
-If the issue is sensitive, please encrypt your email using the provided GPG key:
+如果问题是敏感信息，请使用提供的 GPG 密钥加密您的邮件：
 
 ```text
 ----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -42,8 +42,8 @@ cagv5r4H
 -----END PGP PUBLIC KEY BLOCK-----
 ```
 
-## Change Log
+## 变更日志
 
-| version  | date       | comment         |
-| -------- | ---------- | --------------- |
-| 20240530 | 2024-05-30 | Initial version |
+| 版本  | 日期       | 备注           |
+| ----- | ---------- | -------------- |
+| 20240530 | 2024-05-30 | 初始版本 |

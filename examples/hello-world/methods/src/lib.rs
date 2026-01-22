@@ -12,4 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// 包含在构建过程中生成的methods.rs文件
+// 这个文件包含了zkVM方法的ID和ELF二进制数据
+// OUT_DIR是构建时环境变量，指向输出目录
+// methods.rs由risc0_build::embed_methods()在构建时生成
 include!(concat!(env!("OUT_DIR"), "/methods.rs"));

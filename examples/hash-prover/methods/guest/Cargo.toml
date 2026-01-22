@@ -1,0 +1,12 @@
+[package]
+name = "hash-guest"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[dependencies]
+risc0-zkvm = { path = "../../../../risc0/zkvm", default-features = false, features = ["std"] }
+# 关键修改：禁用默认特性 (default-features = false)
+# sha2 默认开启 std，这会导致 panic_impl 冲突
+sha2 = { version = "0.10", default-features = false, features = ["force-soft"] }

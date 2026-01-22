@@ -1301,6 +1301,7 @@ version = "0.12.0"
 dependencies = [
  "risc0-zkp",
  "serde",
+ "tracing",
 ]
 
 [[package]]
@@ -1308,6 +1309,7 @@ name = "voting-machine-methods-guest"
 version = "0.12.0"
 dependencies = [
  "risc0-zkvm",
+ "tracing",
  "voting-machine-core",
 ]
 
