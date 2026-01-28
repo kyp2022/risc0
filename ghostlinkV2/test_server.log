@@ -1,0 +1,20 @@
+   Compiling ghostlink-v2-methods v0.1.0 (/Users/ppg/Desktop/zkvm/risc0/ghostlinkV2/methods)
+   Compiling ghostlink-v2-host v0.1.0 (/Users/ppg/Desktop/zkvm/risc0/ghostlinkV2/host)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.40s
+     Running `target/debug/ghostlink-v2-host`
+==================================================
+🔐 GhostLink V2 ZK Prover Service
+==================================================
+📋 Supported credentials: github, alipay, twitter, wallet
+🔑 Guest Image ID: 0x6ebc99262cf7c06dad69ba031a3373b5e250cf2401f10a9bb16ca23ede40c041
+==================================================
+🚀 Server running at http://127.0.0.1:3000
+[2m2026-01-26T10:51:30.958440Z[0m [32m INFO[0m [2mghostlink_v2_host[0m[2m:[0m Received proof request: type=Github, recipient=0x1234567890123456789012345678901234567890
+[2m2026-01-26T10:51:30.959274Z[0m [32m INFO[0m [2mghostlink_v2_host[0m[2m:[0m Starting proof generation...
+WARNING: proving in dev mode. This will not generate valid, secure proofs.
+WARNING: Proving in dev mode does not generate a valid receipt. Receipts generated from this process are invalid and should never be used in production.
+[2m2026-01-26T10:51:31.010157Z[0m [32m INFO[0m [2mghostlink_v2_host[0m[2m:[0m Proof generated, compressing to Groth16...
+
+thread 'tokio-runtime-worker' (1797137) panicked at host/src/main.rs:240:65:
+called `Result::unwrap()` on an `Err` value: invalid receipt format
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

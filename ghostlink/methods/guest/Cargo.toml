@@ -1,0 +1,10 @@
+[package]
+name = "ghostlink-guest"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# 升级到 3.0.0，并开启 std (因为我们之前决定在 Server-Side Proving 中使用 std 以简化开发)
+risc0-zkvm = { version = "3.0.0", features = ["std"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }

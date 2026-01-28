@@ -1,0 +1,36 @@
+[package]
+name = "ghostlink-v2-host"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Local methods crate
+ghostlink-v2-methods = { path = "../methods" }
+
+# RISC Zero zkVM host library (use workspace dependency)
+# 使用 docker feature 可以通过 Docker 容器执行 Groth16 压缩，无需本地安装组件
+risc0-zkvm = { workspace = true, features = ["client", "std", "docker"] }
+risc0-circuit-recursion = { workspace = true }
+risc0-circuit-keccak = { workspace = true }
+
+# Web framework
+axum = "0.7"
+tokio = { version = "1.0", features = ["full"] }
+tower-http = { version = "0.5", features = ["cors"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Utilities
+hex = "0.4"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# For signature verification on host side
+alloy-primitives = "0.8"
+
+[features]
+default = []
+prove = ["risc0-zkvm/prove", "risc0-circuit-recursion/prove", "risc0-circuit-keccak/prove"]
+cuda = ["risc0-zkvm/cuda"]

@@ -1,0 +1,19 @@
+   Compiling ghostlink-v2-methods v0.1.0 (/Users/ppg/Desktop/zkvm/risc0/ghostlinkV2/methods)
+   Compiling ghostlink-v2-host v0.1.0 (/Users/ppg/Desktop/zkvm/risc0/ghostlinkV2/host)
+error[E0507]: cannot move out of `groth16_inner.seal` which is behind a shared reference
+   --> host/src/main.rs:244:33
+    |
+244 | ...data = groth16_inner.seal;
+    |           ^^^^^^^^^^^^^^^^^^ move occurs because `groth16_inner.seal` has type `Vec<u8>`, which does not implement the `Copy` trait
+    |
+help: consider borrowing here
+    |
+244 |                 let seal_data = &groth16_inner.seal;
+    |                                 +
+help: consider cloning the value if the performance cost is acceptable
+    |
+244 |                 let seal_data = groth16_inner.seal.clone();
+    |                                                   ++++++++
+
+For more information about this error, try `rustc --explain E0507`.
+error: could not compile `ghostlink-v2-host` (bin "ghostlink-v2-host") due to 1 previous error
