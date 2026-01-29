@@ -114,93 +114,93 @@ contract GhostLinkSBT is ERC721, Ownable {
         bytes32 journalHash = sha256(
             abi.encodePacked(msg.sender, nullifier, uint8(credType))
         );
-        
+
         // 3. Verify ZK proof
         // NOTE: verifier.verify() reverts on failure, returns nothing on success
         // The seal must be in Groth16 format: [4-byte selector][Groth16 proof data]
         verifier.verify(seal, imageId, journalHash);
-        
+
         // 4. Mark nullifier as used
         nullifiers[nullifier] = true;
-        
+
         // 5. Mint token
         tokenId = _tokenIdCounter++;
         _mint(msg.sender, tokenId);
-        
+
         // 6. Record credential info
         credentials[tokenId] = Credential({
             credType: credType,
             mintedAt: block.timestamp,
             nullifier: nullifier
         });
-        
+
         // 7. Update user tokens mapping
         userTokens[msg.sender].push(tokenId);
-        
+
         // 8. Emit event
         emit Minted(msg.sender, tokenId, nullifier, credType);
-        
+
         return tokenId;
     }
 
     // ============ Query Functions ============
-    
+
     /**
      * @notice Get all credentials for a user
      * @param user User address
      * @return creds Array of credentials
      */
-    function getCredentials(address user) 
-        external 
-        view 
-        returns (Credential[] memory creds) 
+    function getCredentials(address user)
+        external
+        view
+        returns (Credential[] memory creds)
     {
         uint256[] memory tokenIds = userTokens[user];
         creds = new Credential[](tokenIds.length);
-        
+
         for (uint256 i = 0; i < tokenIds.length; i++) {
             creds[i] = credentials[tokenIds[i]];
         }
-        
+
         return creds;
     }
-    
+
     /**
      * @notice Check if user has a specific credential type
      * @param user User address
      * @param credType Credential type to check
      * @return hasCredential True if user has the credential type
      */
-    function hasCredentialType(address user, CredentialType credType) 
-        external 
-        view 
-        returns (bool hasCredential) 
+    function hasCredentialType(address user, CredentialType credType)
+        external
+        view
+        returns (bool hasCredential)
     {
         uint256[] memory tokenIds = userTokens[user];
-        
+
         for (uint256 i = 0; i < tokenIds.length; i++) {
             if (credentials[tokenIds[i]].credType == credType) {
                 return true;
             }
         }
-        
+
         return false;
     }
-    
+
     /**
      * @notice Get credential info for a specific token
      * @param tokenId Token ID
      * @return cred Credential struct
      */
-    function getCredential(uint256 tokenId) 
-        external 
-        view 
-        returns (Credential memory cred) 
+    function getCredential(uint256 tokenId)
+        external
+        view
+        returns (Credential memory cred)
     {
         require(_ownerOf(tokenId) != address(0), "Token does not exist");
         return credentials[tokenId];
     }
-    
+
     /**
      * @notice Debug helper to calculate the expected journal hash
      * @param user The address of the recipient

@@ -142,4 +142,4 @@ cast call $CONTRACT_ADDRESS "nullifiers(bytes32)" $NULLIFIER --rpc-url $RPC_URL
 
 ## 📚 完整文档
 
-详细说明请参考：[STARTUP_GUIDE.md](./STARTUP_GUIDE.md)
+详细说明请参考：[STARTUP_GUIDE.md](STARTUP_GUIDE.md)

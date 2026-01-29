@@ -1,7 +1,7 @@
 # GhostLink V2 避坑指南
 
-> **版本**: v2.0  
-> **更新日期**: 2026-01-26  
+> **版本**: v2.0
+> **更新日期**: 2026-01-26
 > **目的**: 记录开发过程中遇到的关键问题和解决方案
 
 ---
@@ -20,7 +20,7 @@
 
 ### ❌ 问题描述
 
-**现象**: 
+**现象**:
 - ghostlinkV2 需要设置 `RISC0_SKIP_BUILD_KERNELS=1` 才能构建
 - ghostlink (v1) 不需要任何环境变量就能正常构建
 
@@ -89,7 +89,7 @@ risc0-circuit-keccak = { version = "4.0.3", default-features = false }
 
 ### ❌ 问题描述
 
-**现象**: 
+**现象**:
 - ghostlink (v1) 能生成 Groth16 证明
 - ghostlinkV2 无法生成 Groth16 证明（或需要额外配置）
 
@@ -153,7 +153,7 @@ risc0-zkvm = { workspace = true, features = ["client", "std", "docker"] }
 
 ### ❌ 问题描述
 
-**现象**: 
+**现象**:
 - 合约调用 `verifier.verify()` 时编译错误或运行时错误
 - 错误信息：`TypeError: Cannot read property 'toString' of undefined`
 
@@ -208,14 +208,14 @@ interface IRiscZeroVerifier {
 ```solidity
 function mint(...) external returns (uint256 tokenId) {
     // ...
-    
+
     // ❌ 错误
     // bool verified = verifier.verify(seal, imageId, journalHash);
     // require(verified, "ZK proof verification failed");
-    
+
     // ✅ 正确：直接调用，失败时自动 revert
     verifier.verify(seal, imageId, journalHash);
-    
+
     // 验证通过，继续执行...
 }
 ```
@@ -231,7 +231,7 @@ function mint(...) external returns (uint256 tokenId) {
 
 ### ❌ 问题描述
 
-**现象**: 
+**现象**:
 - 使用本地源码路径时，构建失败
 - 错误信息：`Could not build metal kernels`
 
@@ -330,7 +330,7 @@ interface IRiscZeroVerifier {
 function mint(...) external returns (uint256 tokenId) {
     // 直接调用，失败时自动 revert
     verifier.verify(seal, imageId, journalHash);
-    
+
     // 验证通过，继续执行...
 }
 ```
@@ -366,7 +366,7 @@ cargo run --release
 
 - [RISC Zero 官方文档](https://dev.risczero.com/)
 - [RISC Zero Verifier 合约地址](https://dev.risczero.com/api/blockchain-integration/contracts/verifier)
-- [STARTUP_GUIDE.md](./STARTUP_GUIDE.md) - 启动和使用指南
+- [STARTUP_GUIDE.md](STARTUP_GUIDE.md) - 启动和使用指南
 
 ---
 
@@ -381,5 +381,5 @@ cargo run --release
 
 ---
 
-**文档版本**: v2.0  
+**文档版本**: v2.0
 **最后更新**: 2026-01-26
