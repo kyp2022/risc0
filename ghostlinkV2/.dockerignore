@@ -1,0 +1,12 @@
+target/
+.git/
+node_modules/
+.DS_Store
+*.log
+tmp/
+.agent/
+.gemini/
+deploy.sh
+web/
+design-doc/
+contract/
