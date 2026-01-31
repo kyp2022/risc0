@@ -19,3 +19,9 @@ compile_commands.json
 .vercel
 node_modules
 *.code-workspace
+
+# 安全：避免误提交私钥/证书类文件（保留仓库内的公钥文件）
+ghostlink/*.private-key.pem
+
+# 本地工具/代理缓存
+.codex/

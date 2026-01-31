@@ -35,7 +35,7 @@ foundryup
 ### 步骤 1: 构建项目
 
 ```bash
-cd risc0/ghostlink
+cd ghostlink
 
 # 构建 Guest 代码和 Host 服务
 cargo build --release
@@ -44,8 +44,8 @@ cargo build --release
 ### 步骤 2: 启动后端服务（生成证明）
 
 ```bash
-cd host
-cargo run
+# 在 ghostlink/ 目录下
+cargo run -p ghostlink-host
 ```
 
 后端服务会在 `http://localhost:3000` 启动。
